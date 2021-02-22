@@ -1,0 +1,15 @@
+<h1 class="page_title">Log In</h1>
+<%# destroy the current user section upon loading the log in page %>
+<% if session[:current_user_id] %>
+    <% destroy %>
+<% end %>
+
+<%= form_tag log_in_path, method: :get do %>
+    <%= label_tag  "Username" %>
+   <%= text_field_tag :username, params[:username] %>
+    <%= submit_tag("Login") %>
+<% end %>
+
+<p>  
+<%= link_to 'sign up', new_user_path %>
+</p>

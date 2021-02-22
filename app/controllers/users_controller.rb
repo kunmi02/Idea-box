@@ -19,6 +19,9 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def sign_in
+  end
+
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
