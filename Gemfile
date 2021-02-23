@@ -3,6 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
+gem 'bulma-rails', '~> 0.6.1'
+# gem 'simple_form', '~> 3.5'
+gem 'simple_form'
+
+gem 'gravatar_image_tag', '~> 1.2'
+# Use bootstrap for styling and responsiveness
+gem 'bootstrap', '~> 5.0.0.beta1'
+# Use Jquery for rails 
+gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
 # Use postgresql as the database for Active Record

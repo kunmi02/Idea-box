@@ -1,0 +1,28 @@
+<div class='content'>
+<div style="position: relative"> &nbsp </div>
+<%= render 'form', idea: @idea %>
+
+<div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Fullname</th>
+      <th>Photo</th>
+      <th>Shared</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @idea.each do |idea| %>
+      <tr>
+        <td><%= idea.author.photo %></td>
+        <td><%= idea.author.fullname %></td>
+        <td><%= idea.author.photo %></td>
+        <td><%= idea.text %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
