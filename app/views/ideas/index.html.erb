@@ -1,28 +1,56 @@
-<div class='content'>
-<div style="position: relative"> &nbsp </div>
-<%= render 'form', idea: @idea %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-9 p-0">
+    <!--Homepage Nav-->
+    <ul class="nav border-muted border-bottom mb-4" id="navbar-example2">
+  <li class="nav-item">
+    <a class="nav-link text-uppercase text-muted pt-4" href="#ideas" style=" border-bottom:5px solid #50A4E2;
+">ideas</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-uppercase text-muted pt-4" href="#tech">tech</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-uppercase text-muted pt-4" href="#lifestyle">lifestyle</a>
+  </li>
+</ul>
+  <%= render 'form', idea: @idea %>
+  <div style="overflow-y: scroll; height:420px;">
+  <%= render 'feed', idea: @idea%>
+  <%= render 'feed', idea: @idea%>
+</div>
 
-<div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Picture</th>
-      <th>Fullname</th>
-      <th>Photo</th>
-      <th>Shared</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @idea.each do |idea| %>
-      <tr>
-        <td><%= idea.author.photo %></td>
-        <td><%= idea.author.fullname %></td>
-        <td><%= idea.author.photo %></td>
-        <td><%= idea.text %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <!-- Right border for who to follow-->
+    <div class="col-3 border border-muted border-right border-bottom">
+      <div>
+        <p class="text-uppercase text-muted p-3 border-muted border-bottom"> who to follow <i class="fa fa-refresh ml-4 float-right"></i></p>
+
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          <p class="text-capitalize m-1">jonathan moreira<br/>
+          <small>Followed by <a href="#">Kareem super</a></small>
+          </p>
+        </div>
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          <p class="text-capitalize m-1">jonathan moreira<br/>
+          <small>Followed by <a href="#">Kareem super</a></small>
+          </p>
+        </div>
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          <p class="text-capitalize m-1">jonathan moreira<br/>
+          <small>Followed by <a href="#">Kareem super</a></small>
+          </p>
+        </div>
+        <p class="ml-3"><small><a href="#">Popular account</a></small>
+        <small class="ml-4"><a href="#">Find friends</a></small>
+        </p>
+                
+      </div>
+    </div>
+  </div>
+</div>

@@ -19,18 +19,24 @@ class FollowingsController < ApplicationController
   def edit
   end
 
+  def check_reverse_pair(followed_id, follower_id)
+    Following.where(followed_id: follower_id, follower_id: followed_id)
+  end
+
   # POST /followings or /followings.json
   def create
-    @following = Following.new(following_params)
+    @sender = User.find(params[:follower_id])
+    reverse_pair = check_reverse_pair(params[:followed_id], params[:follower_id])
+    if reverse_pair.empty?
+      @follow = Following.new(followed_id: params[:followed_id], follower_id: params[:follower_id])
 
-    respond_to do |format|
-      if @following.save
-        format.html { redirect_to @following, notice: "Following was successfully created." }
-        format.json { render :show, status: :created, location: @following }
+      if @follow.save
+        redirect_to user_path(id:params[:followed_id]), notice: 'Now following'
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @following.errors, status: :unprocessable_entity }
+        redirect_to user_path(id:params[:followed_id]), notice: 'You already followed each other'
       end
+    else
+      redirect_to user_path(id:params[:followed_id]), notice: 'User either follows you or you followed the user'
     end
   end
 
@@ -64,6 +70,6 @@ class FollowingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def following_params
-      params.require(:following).permit(:follower_id_id, :followed_id_id)
+      params.require(:following).permit(:follower_id, :followed_id)
     end
 end

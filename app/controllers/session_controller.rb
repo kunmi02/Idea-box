@@ -5,8 +5,8 @@ class SessionController < ApplicationController
     if !@user.nil?
       flash[:notice] = 'Log in successful'
       session[:current_user_id] = @user.id
-      session[:user_name] = @user.username
-      redirect_to user_path(id: @user.id)
+      session[:user_name] = @user.fullname
+      redirect_to ideas_path
     else
       flash[:alert] = 'User not found.'
       redirect_to root_path
@@ -16,12 +16,11 @@ class SessionController < ApplicationController
   def log_out
     session.delete(:current_user_id)
     flash[:alert] = 'You have successfully logged out'
-    @_current_user = nil
     redirect_to root_path
   end
 
   def logged_in?
     return false unless session[:current_user_id]
   end
-
+  helper_method :logged_in?
 end

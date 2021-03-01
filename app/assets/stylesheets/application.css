@@ -16,21 +16,19 @@
  */
 
 
-.sidebar {
+/* .sidebar {
   margin: 0;
   padding: 0;
-  width: 200px;
   background-color: #223247;
   position: fixed;
   height: 100%;
-  /* top: 7%; */
   overflow: auto;
 }
 
 .sidebar a {
   display: block;
   color: black;
-  padding: 16px;
+  /* padding: 16px; 
   text-decoration: none;
 }
  
@@ -44,11 +42,11 @@
   color: white;
 }
 
-div.content {
+/* div.content {
   margin-left: 200px;
   padding: 1px 16px;
   height: 1000px;
-}
+} 
 
 @media screen and (max-width: 700px) {
   .sidebar {
@@ -65,4 +63,15 @@ div.content {
     text-align: center;
     float: none;
   }
+} */
+
+#green { 
+  height: 100%; 
+  background: #223247; 
+  color: white; 
+  padding: 15px; 
+} 
+
+body {
+  background-color: #F5F6F8;
 }

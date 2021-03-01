@@ -1,3 +1,4 @@
+<div class="container col-md-4 col-md-offset-4">
 <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -11,27 +12,29 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="m-3">
     <%= form.label :username %>
-    <%= form.text_field :username %>
+    <%= form.text_field :username, class: 'form-control d-block', autofocus: true,  placeholder: 'Username' %>
   </div>
 
-  <div class="field">
+  <div class="m-3">
     <%= form.label :fullname %>
-    <%= form.text_field :fullname %>
+    <%= form.text_field :fullname, class: 'form-control d-block', autofocus: true,  placeholder: 'Username' %>
   </div>
 
-  <div class="field">
+  <div class="field m-3">
     <%= form.label :photo %>
-    <%= form.text_area :photo %>
+    <%= form.text_area :photo, class: 'form-control d-block', autofocus: true,  placeholder: 'Username' %>
   </div>
 
-  <div class="field">
+  <div class="field m-3">
     <%= form.label :cover_image %>
-    <%= form.text_area :cover_image %>
+    <%= form.text_area :cover_image,class: 'form-control d-block', autofocus: true,  placeholder: 'Username' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class='m-3'>
+    <%= link_to 'Have an account? Please log in', root_path %><br/>
+    <%= form.submit 'Register', :class => 'btn btn-default btn-lg btn-submit btn-primary my-2' %>
   </div>
 <% end %>
+</div>

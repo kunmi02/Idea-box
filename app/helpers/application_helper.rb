@@ -1,9 +1,6 @@
 module ApplicationHelper
-  def user_signed_in?
-    puts '!!!!!!!!'
-    puts session[:current_user_id]
-    puts '************'
-    return false unless session[:current_user_id]
+  def followers
+    user = User.find(session[:current_user_id])
   end
 end
 

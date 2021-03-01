@@ -1,25 +1,102 @@
-<%# <p id="notice"><%= notice ></p> %>
-<div class="content">
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-9 p-0" style="height:100vh">
+    <!--Homepage Nav-->
+   
+    <img  src="https://via.placeholder.com/728x90?text=728x90+Leaderboard
 
-<p>
-  <strong>Fullname:</strong>
-  <%= @user.fullname %>
-</p>
+C/O https://placeholder.com/banner-ads/#46821560_Full_Banner" alt="Generic placeholder image" class="img-responsive" width="600" height="250" style="width: 100%;
+  height: auto;">
+    <%# <ul class="nav border-muted border-bottom " id="navbar-example2">
+  <li class="nav-item">
+    <a class="nav-link text-uppercase text-muted pt-4" href="#ideas" style=" border-bottom:5px solid #50A4E2;
+">ideas</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-uppercase text-muted pt-4" href="#tech">tech</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-uppercase text-muted pt-4" href="#lifestyle">lifestyle</a>
+  </li>
+</ul> %>
+  <%# <p>Share your ideas with <%= @user.username> %>
+  <div style="overflow-y: scroll;
+  height:480px;">
+  <%# <%= render 'ideas/form', idea: @idea > %>
+  <%= render partial: 'ideas/feed', idea: @idea %>
+</div>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @user.photo %>
-</p>
+</div>
 
-<p>
-  <strong>Cover image:</strong>
-  <%= @user.cover_image %>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <!-- Right border for users profile-->
+    <div class="col-3 border border-muted border-right border-bottom">
+      <div>
+
+        <div class="mb-3 text-center">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle mt-1" style="height:50%; width:50%">
+          <p class="text-capitalize m-1"><%= @user.fullname%><br/>
+          <small><a href="#">@<%=@user.username%></a></small><br/>
+          <% if @user.id != session[:current_user_id]%>
+          <%= button_to "Follow", followings_path(follower_id: session[:current_user_id], followed_id:@user.id),:method => :post, class: "btn btn-lg text-white button-color"%>
+          <% end %>
+          </p>
+        </div>
+        <div class='d-flex my-4  border-muted ml-4'>
+            <p class='px-2  text-center'><span class="font-weight-bold"><%= @user.ideas.count%></span><br><span class="text-muted">Ideas</span></p>
+            <p class='px-2 text-center'>
+              <span class="font-weight-bold"><%= @user.followings.count%></span>
+              <br>
+              <span class="text-muted">Following</span>
+            </p>
+            <p class='px-2 text-center'>
+              <span class="font-weight-bold"><%= @user.followers.count%></span>
+              <br>
+              <span class="text-muted">Following
+            </p>
+        </div>
+        <p class="text-muted"> FOLLOWED BY</p>
+        <% if !@user.followers.empty?%>
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          <%# <p class="text-capitalize m-1"><%= @first_follower.fullname ><br/>
+          <small><a href="#">@<%=@first_follower.username></a></small>
+          </p> %>
+        </div>
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          <%# <p class="text-capitalize m-1"><%= @second_follower.fullname ><br/>
+          <small><a href="#">@<%=@second_follower.username></a></small> %>
+          </p>
+        </div>
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          <%# <p class="text-capitalize m-1"><%= @second_follower.fullname ><br/>
+          <small><a href="#">@<%=@second_follower.username></a></small> %>
+          </p>
+        </div>
+        <% end %>
+        <%# <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          <p class="text-capitalize m-1">jonathan moreira<br/>
+          <small>Followed by <a href="#">Kareem super</a></small>
+          </p>
+        </div> 
+                
+      </div>
+      <%# <div class="">
+        <hr class="m-0 p-0">
+        <p class="text-uppercase text-muted p-3 border-muted border-bottom"> trending <i class="fa fa-gear ml-4 float-right"></i></p>
+
+        <div class="text-muted">
+          <p class="pl-4 ml-2">#onearmy</p>
+          <p class="pl-4 ml-2">#onearmy</p>
+          <p class="pl-4 ml-2">#onearmy</p>
+          <p class="pl-4 ml-2">#onearmy</p>
+          <p class="pl-4 ml-2">#onearmy</p>
+        </div>
+                
+      </div> %>
+    </div>
+  </div>
 </div>

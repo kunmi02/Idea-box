@@ -1,16 +1,14 @@
 class IdeasController < ApplicationController
+  # before_action :require_login, only: %i[create index show new]
+  before_action :authorized
 
   def index
-    @idea = Idea.all
+    @idea = Idea.order('created_at DESC')
     @ideas = Idea.new
-    current_user = User.find(session[:current_user_id]) if session[:current_user_id]
-    redirect_to root_path if current_user.nil?
   end
 
   def new
     @ideas = Idea.new
-    # current_user = User.find(session[:current_user_id]) if session[:current_user_id]
-    # redirect_to root_path if current_user.nil?
   end
 
   def show

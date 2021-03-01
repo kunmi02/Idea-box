@@ -1,0 +1,20 @@
+<h1 class="page_title text-center m-2">Recover your username</h1>
+<div class="container col-md-4 col-md-offset-4">
+<% if session[:current_user_id] %>
+    <% destroy %>
+<% end %>
+<div class='mt-4'>
+<h2 class="text-center" style="color:red"><%= alert %></h2>
+<%= form_tag username_path, method: :get do%>
+    
+    <%= label_tag  "Enter your email address"%>
+   <%= text_field_tag :email, params[:email], class: 'form-control d-block', autofocus: true,  placeholder: 'Username'%>
+   <small id="emailHelp" class="form-text text-muted">
+   <%= link_to 'Click here to log in', root_path	, style: "color: white", class: "form-text text-muted"%>
+    </small>
+    <%= submit_tag "Submit", class: 'btn btn-default btn-lg btn-submit btn-primary my-2 '%>
+  
+<% end %>
+
+</div>
+</div>
