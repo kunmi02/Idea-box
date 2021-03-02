@@ -19,17 +19,22 @@
 
   <div class="m-3">
     <%= form.label :fullname %>
-    <%= form.text_field :fullname, class: 'form-control d-block', autofocus: true,  placeholder: 'Username' %>
+    <%= form.text_field :fullname, class: 'form-control d-block', autofocus: true,  placeholder: 'Fullname' %>
   </div>
 
   <div class="field m-3">
     <%= form.label :photo %>
-    <%= form.text_area :photo, class: 'form-control d-block', autofocus: true,  placeholder: 'Username' %>
+    <%= form.text_field :photo, class: 'form-control d-block', autofocus: true,  placeholder: 'Please use an image link' %>
   </div>
 
   <div class="field m-3">
     <%= form.label :cover_image %>
-    <%= form.text_area :cover_image,class: 'form-control d-block', autofocus: true,  placeholder: 'Username' %>
+    <%= form.text_field :cover_image,class: 'form-control d-block', autofocus: true,  placeholder: 'Please use an image link' %>
+  </div>
+
+  <div class="field m-3">
+    <%= form.label :email %>
+    <%= form.text_field :email,class: 'form-control d-block', autofocus: true,  placeholder: 'Email' %>
   </div>
 
   <div class='m-3'>

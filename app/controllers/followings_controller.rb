@@ -41,17 +41,17 @@ class FollowingsController < ApplicationController
   end
 
   # PATCH/PUT /followings/1 or /followings/1.json
-  def update
-    respond_to do |format|
-      if @following.update(following_params)
-        format.html { redirect_to @following, notice: "Following was successfully updated." }
-        format.json { render :show, status: :ok, location: @following }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @following.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @following.update(following_params)
+  #       format.html { redirect_to @following, notice: "Following was successfully updated." }
+  #       format.json { render :show, status: :ok, location: @following }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #       format.json { render json: @following.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /followings/1 or /followings/1.json
   def destroy

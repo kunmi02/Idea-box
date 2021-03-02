@@ -57,7 +57,7 @@ class UsersController < ApplicationController
       if @user.save
         session[:current_user_id] = @user.id
         session[:user_name] = @user.fullname
-        format.html { redirect_to ideas_path, notice: "User was successfully created." }
+        format.html { redirect_to ideas_path, notice: "Welcome! You have signed up successfully." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -96,6 +96,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :fullname, :photo, :cover_image)
+      params.require(:user).permit(:username, :fullname, :photo, :cover_image, :email)
     end
 end

@@ -9,7 +9,8 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
 import "bulma";
-import "../../assets/javascript/application"
+import "../../assets/javascript/application";
+import '../stylesheets/application';
 
 Rails.start()
 Turbolinks.start()
