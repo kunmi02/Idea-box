@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
-gem 'bulma-rails', '~> 0.6.1'
+# gem 'bulma-rails', '~> 0.6.1'
 # gem 'simple_form'
 
 gem 'gravatar_image_tag', '~> 1.2'
