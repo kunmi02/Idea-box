@@ -13,7 +13,6 @@
 
   <body>
   <div class="container-fluid" style="height:100vh">
-  <span class=> <%= notice %></span>
   <% if logged_in? %>
   <div class="row">
       <div class="col-2" id="green" style="height:100vh"> 
@@ -36,14 +35,14 @@
                  
                 <p class='pl-4 ml-2'>                <i class="fa fa-at"> <%= link_to 'CONNECT', users_path, style: "color: white; font-size:15px", class: "navbar-brand"%></i>
                 </p>
-                <p class='pl-4 ml-2'>
-                <i class="fa fa-slack"> <%= link_to 'DISCOVER', users_path, style: "color: white; font-size:15px", class: "navbar-brand"%></i>
-                </p>
+                <%# <p class='pl-4 ml-2'>
+                <i class="fa fa-slack"> <%= link_to 'DISCOVER', users_path, style: "color: white; font-size:15px", class: "navbar-brand"></i>
+                </p> %>
                 <p class='pl-4 ml-2'>
                 <i class="fa fa-user"> <%= link_to 'PROFILE', user_path(id: session[:current_user_id]), style: "color: white; font-size:15px", class: "navbar-brand"%></i>
                 </p>
                 <p class='pl-4 ml-2'>
-                <i class="fa fa-pie-chart"> <%= link_to 'STATISTICS', users_path, style: "color: white; font-size:15px", class: "navbar-brand"%></i>
+                <i class="fa fa-external-link"><%= link_to ' LOG OUT', log_out_path, style: "color: white; font-size:15px", class: "navbar-brand"%></i>
                 <p>
                 
       </div> 
@@ -56,11 +55,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link active" href="#"><span class="fa fa-pencil fa-2x mx-4" style="color: #376F9C"></span><span class="sr-only">(current)</span></a>
+        <%# <a class="nav-item nav-link active" href="#"><span class="fa fa-pencil fa-2x mx-4" style="color: #376F9C"></span><span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="#"><span class="fa fa-envelope fa-2x mx-4" style="color: #376F9C"></span></a>
-        <a class="nav-item nav-link" href="#"><span class="fa fa-search fa-2x mx-4" style="color: #376F9C"></span></a>
+        <a class="nav-item nav-link" href="#"><span class="fa fa-search fa-2x mx-4" style="color: #376F9C"></span></a> %>
         <span class="nav-item nav-link">
-        <%= link_to '', log_out_path, class: "fa fa-gear fa-2x mx-4", style: "color: #376F9C"%></span>
+        <%= link_to '', log_out_path, class: "fa fa-external-link fa-2x mx-4", style: "color: #376F9C"%></span>
       </div>
     </div>
   </nav>
@@ -79,6 +78,7 @@
 <% end %>
 
   <main>
+  <span style="color:green"> <%= notice %></span>
   <%= yield %>
   <main>
   </body>

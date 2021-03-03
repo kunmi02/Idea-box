@@ -7,22 +7,8 @@
 
 C/O https://placeholder.com/banner-ads/#46821560_Full_Banner" alt="Generic placeholder image" class="img-responsive" width="600" height="250" style="width: 100%;
   height: auto;">
-    <%# <ul class="nav border-muted border-bottom " id="navbar-example2">
-  <li class="nav-item">
-    <a class="nav-link text-uppercase text-muted pt-4" href="#ideas" style=" border-bottom:5px solid #50A4E2;
-">ideas</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-uppercase text-muted pt-4" href="#tech">tech</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-uppercase text-muted pt-4" href="#lifestyle">lifestyle</a>
-  </li>
-</ul> %>
-  <%# <p>Share your ideas with <%= @user.username> %>
   <div style="overflow-y: scroll;
   height:480px;">
-  <%# <%= render 'ideas/form', idea: @idea > %>
   <%= render partial: 'ideas/feed', idea: @idea %>
 </div>
 
@@ -59,44 +45,16 @@ C/O https://placeholder.com/banner-ads/#46821560_Full_Banner" alt="Generic place
         <% if !@user.followers.empty?%>
         <div class="d-flex mb-3">
           <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
-          <%# <p class="text-capitalize m-1"><%= @first_follower.fullname ><br/>
-          <small><a href="#">@<%=@first_follower.username></a></small>
-          </p> %>
         </div>
         <div class="d-flex mb-3">
           <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
-          <%# <p class="text-capitalize m-1"><%= @second_follower.fullname ><br/>
-          <small><a href="#">@<%=@second_follower.username></a></small> %>
           </p>
         </div>
         <div class="d-flex mb-3">
           <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
-          <%# <p class="text-capitalize m-1"><%= @second_follower.fullname ><br/>
-          <small><a href="#">@<%=@second_follower.username></a></small> %>
           </p>
         </div>
         <% end %>
-        <%# <div class="d-flex mb-3">
-          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
-          <p class="text-capitalize m-1">jonathan moreira<br/>
-          <small>Followed by <a href="#">Kareem super</a></small>
-          </p>
-        </div> 
-                
-      </div>
-      <%# <div class="">
-        <hr class="m-0 p-0">
-        <p class="text-uppercase text-muted p-3 border-muted border-bottom"> trending <i class="fa fa-gear ml-4 float-right"></i></p>
-
-        <div class="text-muted">
-          <p class="pl-4 ml-2">#onearmy</p>
-          <p class="pl-4 ml-2">#onearmy</p>
-          <p class="pl-4 ml-2">#onearmy</p>
-          <p class="pl-4 ml-2">#onearmy</p>
-          <p class="pl-4 ml-2">#onearmy</p>
-        </div>
-                
-      </div> %>
     </div>
   </div>
 </div>

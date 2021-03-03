@@ -34,10 +34,10 @@ The project design is inspired by [Lifestyle](https://www.behance.net/gallery/14
 - Open your browser and go to `127.0.0.1:3000` or `localhost:3000`
 
 ## Live Demo
-https://guarded-reaches-31670.herokuapp.com/
+https://young-stream-84732.herokuapp.com/
 
 ## Screenshot
-![](./app/assets/images/Home.png)
+![](./app/assets/images/rootpage.png)
 
 
 ## Designed With
@@ -64,9 +64,9 @@ Contributions, issues, and feature requests are welcome! Start by:
 
 ## Author
 
-👤 **Suyash Fowdar**
-- Github: [@Krishnzzz](https://github.com/krishnzzz)
-- LinkedIn: [Suyash Fowdar](https://www.linkedin.com/in/suyash-fowdar/)
+👤 **Azeez ibrahim**
+- Github: [@Kunmi02](https://github.com/kunmi02)
+- LinkedIn: [Azeez Ibrahim](https://www.linkedin.com/in/azeezakinkunmi/)
 
 ## Show your support
 
