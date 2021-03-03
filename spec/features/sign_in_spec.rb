@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'SignIns', type: :feature do
   before :each do
-    @user = User.create(username: 'Johnny', fullname: 'passwordss', photo: 'photoss.com', cover_image: 'coverimagess.com', email:'chech@xhchess.com' )
+    @user = User.create(username: 'Johnny', fullname: 'passwordss', photo: 'photoss.com',
+                        cover_image: 'coverimagess.com', email: 'chech@xhchess.com')
     visit root_path
   end
 

@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :users
   resources :ideas, only: [:create, :index, :show, :new]
   get '/recovery', to: 'users#recovery'
-  get '/username', to: 'users#get_username'
+  get '/username', to: 'users#_get_username'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

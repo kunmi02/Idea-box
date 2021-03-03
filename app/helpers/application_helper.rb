@@ -4,5 +4,4 @@ module ApplicationHelper
   # end
 end
 
-
 # user_signed_in?

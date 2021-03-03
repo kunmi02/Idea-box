@@ -1,5 +1,5 @@
 class FollowingsController < ApplicationController
-  before_action :set_following, only: %i[ show edit update destroy ]
+  before_action :set_following, only: %i[show edit update destroy]
 
   # GET /followings or /followings.json
   def index
@@ -7,8 +7,7 @@ class FollowingsController < ApplicationController
   end
 
   # GET /followings/1 or /followings/1.json
-  def show
-  end
+  def show; end
 
   # GET /followings/new
   def new
@@ -16,8 +15,7 @@ class FollowingsController < ApplicationController
   end
 
   # GET /followings/1/edit
-  def edit
-  end
+  def edit; end
 
   def check_reverse_pair(followed_id, follower_id)
     Following.where(followed_id: follower_id, follower_id: followed_id)
@@ -31,12 +29,12 @@ class FollowingsController < ApplicationController
       @follow = Following.new(followed_id: params[:followed_id], follower_id: params[:follower_id])
 
       if @follow.save
-        redirect_to user_path(id:params[:followed_id]), notice: 'Now following'
+        redirect_to user_path(id: params[:followed_id]), notice: 'Now following'
       else
-        redirect_to user_path(id:params[:followed_id]), notice: 'You already followed each other'
+        redirect_to user_path(id: params[:followed_id]), notice: 'You already followed each other'
       end
     else
-      redirect_to user_path(id:params[:followed_id]), notice: 'User either follows you or you followed the user'
+      redirect_to user_path(id: params[:followed_id]), notice: 'User either follows you or you followed the user'
     end
   end
 
@@ -57,19 +55,20 @@ class FollowingsController < ApplicationController
   def destroy
     @following.destroy
     respond_to do |format|
-      format.html { redirect_to followings_url, notice: "Following was successfully destroyed." }
+      format.html { redirect_to followings_url, notice: 'Following was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_following
-      @following = Following.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def following_params
-      params.require(:following).permit(:follower_id, :followed_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_following
+    @following = Following.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def following_params
+    params.require(:following).permit(:follower_id, :followed_id)
+  end
 end

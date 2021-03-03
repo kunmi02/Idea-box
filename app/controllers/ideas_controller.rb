@@ -11,8 +11,7 @@ class IdeasController < ApplicationController
     @ideas = Idea.new
   end
 
-  def show
-  end
+  def show; end
 
   #   # POST /users or /users.json
   def create
@@ -21,7 +20,7 @@ class IdeasController < ApplicationController
 
     respond_to do |format|
       if @idea.save
-        format.html { redirect_to ideas_path, notice: "Idea successfully shared" }
+        format.html { redirect_to ideas_path, notice: 'Idea successfully shared' }
         # format.json { render :show, status: :created, location: @user }
       else
         format.html { redirect_to ideas_path, alert: "can't share idea now" }
@@ -31,8 +30,8 @@ class IdeasController < ApplicationController
   end
 
   def idea_params
-        params.require(:idea).permit(:text)
-      end
+    params.require(:idea).permit(:text)
+  end
 end
 
 # class UsersController < ApplicationController

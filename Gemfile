@@ -9,7 +9,7 @@ gem 'bulma-rails', '~> 0.6.1'
 gem 'gravatar_image_tag', '~> 1.2'
 # Use bootstrap for styling and responsiveness
 gem 'bootstrap', '~> 5.0.0.beta1'
-# Use Jquery for rails 
+# Use Jquery for rails
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
   # gem 'rspec-rails', github: 'rspec/rspec-rails', branch: 'rails-6-1-dev'
 end
@@ -63,4 +63,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

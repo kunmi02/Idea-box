@@ -1,9 +1,10 @@
 # rubocop:disable Metrics/BlockLength
 require 'rails_helper'
 
-RSpec.feature "SignUps", type: :feature do
+RSpec.feature 'SignUps', type: :feature do
   before :each do
-    @user = User.new(username: 'Johnny', fullname: 'passwordss', photo: 'photoss.com', cover_image: 'coverimagess.com', email:'chech@xhchess.com' )
+    @user = User.new(username: 'Johnny', fullname: 'passwordss', photo: 'photoss.com',
+                     cover_image: 'coverimagess.com', email: 'chech@xhchess.com')
     visit new_user_path
   end
 
@@ -25,7 +26,6 @@ RSpec.feature "SignUps", type: :feature do
     click_button 'Register'
     expect(page).to have_text("Username can't be blank")
   end
-  
 
   it 'email can not be empty' do
     fill_in 'Fullname', with: @user.fullname
@@ -34,12 +34,11 @@ RSpec.feature "SignUps", type: :feature do
     fill_in 'Cover image', with: @user.cover_image
     click_button 'Register'
     expect(page).to have_text("Email can't be blank")
-    
   end
 
-
   it 'email must be unique' do
-    @user2 = User.create(username: 'John1nyyy', fullname: 'passwordssu', photo: 'photoss.com', cover_image: 'coverimagess.com', email:'chech@xhchess.com' )
+    @user2 = User.create(username: 'John1nyyy', fullname: 'passwordssu', photo: 'photoss.com',
+                         cover_image: 'coverimagess.com', email: 'chech@xhchess.com')
 
     fill_in 'Fullname', with: @user.fullname
     fill_in 'Username', with: @user.username
@@ -51,7 +50,8 @@ RSpec.feature "SignUps", type: :feature do
   end
 
   it 'username must be unique' do
-    @user2 = User.create(username: 'Johnny', fullname: 'passwordssu', photo: 'photoss.com', cover_image: 'coverimagess.com', email:'josh@xhchessre.com' )
+    @user2 = User.create(username: 'Johnny', fullname: 'passwordssu', photo: 'photoss.com',
+                         cover_image: 'coverimagess.com', email: 'josh@xhchessre.com')
 
     fill_in 'Fullname', with: @user.fullname
     fill_in 'Username', with: @user.username
@@ -61,6 +61,5 @@ RSpec.feature "SignUps", type: :feature do
     click_button 'Register'
     expect(page).to have_text('Username has already been taken')
   end
-
 end
 # rubocop:enable Metrics/BlockLength
