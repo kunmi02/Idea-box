@@ -31,4 +31,3 @@ class IdeasController < ApplicationController
     params.require(:idea).permit(:text)
   end
 end
-
