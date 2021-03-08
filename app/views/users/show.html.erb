@@ -23,8 +23,12 @@ C/O https://placeholder.com/banner-ads/#46821560_Full_Banner" alt="Generic place
           <img src="//placehold.it/50" alt="user pic" class="rounded-circle mt-1" style="height:50%; width:50%">
           <p class="text-capitalize m-1"><%= @user.fullname%><br/>
           <small><a href="#">@<%=@user.username%></a></small><br/>
-          <% if @user.id != session[:current_user_id]%>
+          <% if (@user.id != session[:current_user_id])%>
+          <% if check_following(session[:current_user_id], @user.id) == false%>
           <%= button_to "Follow", followings_path(follower_id: session[:current_user_id], followed_id:@user.id),:method => :post, class: "btn btn-lg text-white button-color"%>
+          <% else%>
+            <%= button_to "Unfollow", unfollow_path(follower_id: session[:current_user_id], followed_id:@user.id),:method => :delete, class: "btn btn-lg text-white button-color"%>
+          <% end %>
           <% end %>
           </p>
         </div>

@@ -38,18 +38,6 @@ class FollowingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /followings/1 or /followings/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @following.update(following_params)
-  #       format.html { redirect_to @following, notice: "Following was successfully updated." }
-  #       format.json { render :show, status: :ok, location: @following }
-  #     else
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @following.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   # DELETE /followings/1 or /followings/1.json
   def destroy
@@ -60,6 +48,17 @@ class FollowingsController < ApplicationController
     end
   end
 
+ def unfollow
+  reverse_pair = check_reverse_pair(params[:followed_id], params[:follower_id])
+  if reverse_pair.empty?
+    @follow = Following.where(followed_id: params[:followed_id], follower_id: params[:follower_id])
+    @follow.destroy_all
+    redirect_to user_path(id: params[:followed_id]), notice: 'User unfollowed'
+  else
+    reverse_pair.destroy_all
+    redirect_to user_path(id: params[:followed_id]), notice: 'User unfollowed'
+ end
+end
   private
 
   # Use callbacks to share common setup or constraints between actions.

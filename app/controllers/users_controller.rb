@@ -13,11 +13,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @idea = @user.ideas
-    # puts '%%%%%%%%'
-    # puts @user.fullnam
-    # @first_follower = @user.followers.first
-    # @second_follower = @user.followers.second
-    # @third_follower = @user.followers.third
   end
 
   def follow_users; end
