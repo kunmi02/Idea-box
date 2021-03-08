@@ -16,14 +16,14 @@ class ApplicationController < ActionController::Base
   end
 
   def check_following(follower_id, followed_id)
-    @follower_id =follower_id
+    @follower_id = follower_id
     @followed_id = followed_id
     @follow = Following.where(follower_id: @follower_id, followed_id: @followed_id)
     @reverse_follow = Following.where(follower_id: @followed_id, followed_id: @follower_id)
-    if (@follow.empty?) && (@follow.empty?)
-      return false
+    if @follow.empty? && @reverse_follow.empty?
+      false
     else
-      return true
+      true
     end
   end
 end

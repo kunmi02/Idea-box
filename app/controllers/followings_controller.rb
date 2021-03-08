@@ -38,7 +38,6 @@ class FollowingsController < ApplicationController
     end
   end
 
-
   # DELETE /followings/1 or /followings/1.json
   def destroy
     @following.destroy
@@ -48,17 +47,18 @@ class FollowingsController < ApplicationController
     end
   end
 
- def unfollow
-  reverse_pair = check_reverse_pair(params[:followed_id], params[:follower_id])
-  if reverse_pair.empty?
-    @follow = Following.where(followed_id: params[:followed_id], follower_id: params[:follower_id])
-    @follow.destroy_all
-    redirect_to user_path(id: params[:followed_id]), notice: 'User unfollowed'
-  else
-    reverse_pair.destroy_all
-    redirect_to user_path(id: params[:followed_id]), notice: 'User unfollowed'
- end
-end
+  def unfollow
+    reverse_pair = check_reverse_pair(params[:followed_id], params[:follower_id])
+    if reverse_pair.empty?
+      @follow = Following.where(followed_id: params[:followed_id], follower_id: params[:follower_id])
+      @follow.destroy_all
+      redirect_to user_path(id: params[:followed_id]), notice: 'User unfollowed'
+    else
+      reverse_pair.destroy_all
+      redirect_to user_path(id: params[:followed_id]), notice: 'User unfollowed'
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
