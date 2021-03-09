@@ -5,13 +5,19 @@ class IdeasController < ApplicationController
   def index
     @idea = Idea.order('created_at DESC')
     @ideas = Idea.new
+    @first_user = User.first
+    @second_user = User.second
+    @third_user = User.third
   end
 
   def new
     @ideas = Idea.new
   end
 
-  def show; end
+  def show
+    @user = User.order('created_at DESC')
+    # @idea = @user.ideas
+  end
 
   #   # POST /users or /users.json
   def create
