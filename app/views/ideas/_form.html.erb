@@ -1,0 +1,16 @@
+<div style ="font-weight: 300;
+    margin: 0 auto;
+    width: 90%;
+    padding: 20px 40px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);">
+<%= form_tag ideas_path, method: :post do%>
+    <span class=' mr-2'><%= label_tag  "Share Idea here"%></span>
+   <%= text_field_tag :idea, params[:idea], class: 'form-control d-block', autofocus: true  %>
+    <span class="text-center">
+    <%= submit_tag "Share", class: 'btn btn-default btn-lg btn-submit btn-info m-2'%>
+    </span>
+    
+<% end %>
+</div>

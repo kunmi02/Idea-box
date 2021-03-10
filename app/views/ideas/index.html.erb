@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-9 p-0">
+    <!--Homepage Nav-->
+    <ul class="nav border-muted border-bottom mb-4" id="navbar-example2">
+  <li class="nav-item">
+    <a class="nav-link text-uppercase text-muted pt-4" href="#ideas" style=" border-bottom:5px solid #50A4E2;
+">ideas</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-uppercase text-muted pt-4" href="#tech">tech</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-uppercase text-muted pt-4" href="#lifestyle">lifestyle</a>
+  </li>
+</ul>
+  <%= render 'form', idea: @idea %>
+  <div style="overflow-y: scroll; height:420px;">
+  <%= render 'feed', idea: @idea%>
+  <%# <%= render 'feed', idea: @idea> %>
+</div>
+
+</div>
+
+
+    <!-- Right border for who to follow-->
+    <div class="col-3 border border-muted border-right border-bottom">
+      <div>
+        <p class="text-uppercase text-muted p-3 border-muted border-bottom"> who to follow <i class="fa fa-refresh ml-4 float-right"></i></p>
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          <p class="text-capitalize m-1"><%= @first_user.fullname %><br/>
+          <small> <%= link_to 'see profile', user_path(id:@first_user.id) %></small>
+          </p>
+        </div>
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          <p class="text-capitalize m-1"><%= @second_user.fullname %><br/>
+          <small><%= link_to 'see profile', user_path(id:@second_user.id) %></small>
+          </p>
+        </div>
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          <p class="text-capitalize m-1"><%= @third_user.fullname %><br/>
+          <small><%= link_to 'see profile', user_path(id:@third_user.id) %></small>
+          </p>
+        </div>
+        <%# <p class="ml-3"><small><a href="#">Popular account</a></small>
+        <small class="ml-4"><a href="#">Find friends</a></small>
+        </p> %>
+                
+      </div>
+    </div>
+  </div>
+</div>

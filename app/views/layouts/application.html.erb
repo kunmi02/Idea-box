@@ -7,10 +7,79 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  <div class="container-fluid" style="height:100vh">
+  <% if logged_in? %>
+  <div class="row">
+      <div class="col-2" id="green" style="height:100vh"> 
+              
+                <div class="position-fixed">
+                <div class="media">
+                  <img  src="//placehold.it/50" alt="Generic placeholder image">
+                  <div class="media-body">
+                    <h6 class="align-self-center my-3 p-1 text-uppercase"><%= current_user.fullname%></h6>
+                  </div>
+                </div>
+                <div class='d-flex my-4'>
+                  <p class='px-3 pb-2 text-center'><%= current_user.followings.count%><br>Followers</p>
+                  <p class='px-3 pb-2 text-center'><%= current_user.followers.count%><br>Following</p>
+                </div>
+                <!-- Navigation links in sidebar-->
+                <p class='pl-4 ml-2'>
+                  <i class="fa fa-home"> <%= link_to 'HOME', ideas_path, style: "color: white; font-size:15px", class: "navbar-brand"%></i>
+                </p>
+                 
+                <p class='pl-4 ml-2'>                <i class="fa fa-at"> <%= link_to 'CONNECT', users_path, style: "color: white; font-size:15px", class: "navbar-brand"%></i>
+                </p>
+                <%# <p class='pl-4 ml-2'>
+                <i class="fa fa-slack"> <%= link_to 'DISCOVER', users_path, style: "color: white; font-size:15px", class: "navbar-brand"></i>
+                </p> %>
+                <p class='pl-4 ml-2'>
+                <i class="fa fa-user"> <%= link_to 'PROFILE', user_path(id: session[:current_user_id]), style: "color: white; font-size:15px", class: "navbar-brand"%></i>
+                </p>
+                <p class='pl-4 ml-2'>
+                <i class="fa fa-external-link"><%= link_to ' LOG OUT', log_out_path, style: "color: white; font-size:15px", class: "navbar-brand"%></i>
+                <p>
+                
+      </div> 
+      </div>
+      <div class="col-10" style="padding: 0; height:100vh">
+  <nav class="navbar navbar-expand-lg" style="background-color: #50A4E2;">
+    <%= link_to 'Idea Box', ideas_path, style: "color: white", class: "navbar-brand fa fa-lightbulb-o fa-2x m-2"%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <%# <a class="nav-item nav-link active" href="#"><span class="fa fa-pencil fa-2x mx-4" style="color: #376F9C"></span><span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#"><span class="fa fa-envelope fa-2x mx-4" style="color: #376F9C"></span></a>
+        <a class="nav-item nav-link" href="#"><span class="fa fa-search fa-2x mx-4" style="color: #376F9C"></span></a> %>
+        <span class="nav-item nav-link">
+        <%= link_to '', log_out_path, class: "fa fa-external-link fa-2x mx-4", style: "color: #376F9C"%></span>
+      </div>
+    </div>
+  </nav>
+  <div>
+  <% else %>
+  <div class="row">
+  <div class="col-12" style="padding: 0; height:100vh">
+  <nav class="navbar navbar-expand-lg" style="background-color: #50A4E2;">
+    <%= link_to 'Idea Box', ideas_path, style: "color: white", class: "navbar-brand fa fa-lightbulb-o fa-2x m-2"%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+  <div>
+  </div>
+<% end %>
+
+  <main>
+  <span style="color:green"> <%= notice %></span>
+  <%= yield %>
+  <main>
   </body>
 </html>

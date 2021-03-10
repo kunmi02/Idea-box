@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-9 p-0" style="height:100vh">
+    <!--Homepage Nav-->
+   
+    <img  src="https://via.placeholder.com/728x90?text=728x90+Leaderboard
+
+C/O https://placeholder.com/banner-ads/#46821560_Full_Banner" alt="Generic placeholder image" class="img-responsive" width="600" height="250" style="width: 100%;
+  height: auto;">
+  <div style="overflow-y: scroll;
+  height:480px;">
+  <%= render partial: 'ideas/feed', idea: @idea %>
+</div>
+
+</div>
+
+
+    <!-- Right border for users profile-->
+    <div class="col-3 border border-muted border-right border-bottom">
+      <div>
+
+        <div class="mb-3 text-center">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle mt-1" style="height:50%; width:50%">
+          <p class="text-capitalize m-1"><%= @user.fullname%><br/>
+          <small><a href="#">@<%=@user.username%></a></small><br/>
+          <% if (@user.id != session[:current_user_id])%>
+          <% if check_following(session[:current_user_id], @user.id) == false%>
+          <%= button_to "Follow", followings_path(follower_id: session[:current_user_id], followed_id:@user.id),:method => :post, class: "btn btn-lg text-white button-color"%>
+          <% else%>
+            <%= button_to "Unfollow", unfollow_path(follower_id: session[:current_user_id], followed_id:@user.id),:method => :delete, class: "btn btn-lg text-white button-color"%>
+          <% end %>
+          <% end %>
+          </p>
+        </div>
+        <div class='d-flex my-4  border-muted ml-4'>
+            <p class='px-2  text-center'><span class="font-weight-bold"><%= @user.ideas.count%></span><br><span class="text-muted">Ideas</span></p>
+            <p class='px-2 text-center'>
+              <span class="font-weight-bold"><%= @user.followings.count%></span>
+              <br>
+              <span class="text-muted">Followers</span>
+            </p>
+            <p class='px-2 text-center'>
+              <span class="font-weight-bold"><%= @user.followers.count%></span>
+              <br>
+              <span class="text-muted">Following
+            </p>
+        </div>
+        <p class="text-muted"> FOLLOWED BY</p>
+        <% if !@user.followers.empty?%>
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+        </div>
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          </p>
+        </div>
+        <div class="d-flex mb-3">
+          <img src="//placehold.it/50" alt="user pic" class="rounded-circle m-1">
+          </p>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,18 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
+
+#green {
+  height: 100%;
+  background: #223247;
+  color: white;
+  padding: 15px;
+}
+
+body {
+  background-color: #f5f6f8;
+}

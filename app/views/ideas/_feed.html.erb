@@ -1,0 +1,19 @@
+<div style ="font-weight: 300;
+    margin: 0 auto;
+    width: 90%;
+    padding: 20px 40px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);">
+    <%# <p><%= :category ></p> %>
+    <% @idea.each do |idea| %>
+    <div>
+      <img src="//placehold.it/50" alt="Generic placeholder image" class=" float-left mr-2">
+      <h5 class="mt-0 mb-0"><%= idea.author.fullname %></h5>
+      <p><%= idea.text %></p>
+    </div>
+    <% end %>
+  
+</div>

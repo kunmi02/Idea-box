@@ -1,0 +1,25 @@
+<span class="text-center" style="color:red"><%= alert %></span>
+<h1 class="page_title text-center m-2">Sign In</h1>
+<div class="container col-md-4 col-md-offset-4">
+<% if session[:current_user_id] %>
+    <% destroy %>
+<% end %>
+<div class='mt-4'>
+<%= form_tag log_in_path, method: :get do%>
+    
+    <%= label_tag  "Enter your username"%>
+   <%= text_field_tag :username, params[:username], class: 'form-control d-block', autofocus: true,  placeholder: 'Username'%>
+   <small id="emailHelp" class="form-text text-muted">
+    <%= link_to 'Click here if you\'ve forgotten your username.', recovery_path	, style: "color: white", class: "form-text text-muted"%>
+   </small>
+    <%= submit_tag "Login", class: 'btn btn-default btn-lg btn-submit btn-primary my-2 '%>
+  
+<% end %>
+
+<p>  
+<small id="emailHelp" class="form-text text-muted">
+<%= link_to 'click here if you are a new user', new_user_path%>
+</small>
+</p>
+</div>
+</div>
